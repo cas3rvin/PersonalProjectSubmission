@@ -35,14 +35,14 @@ const DisplayAll = () => {
     return (
     <div className="container">
         <div className="row">
-            <div className="col-8">
-            <p className="purple-text">Children in program!</p>
+            <div className="col-80">
+            <h2 className="purple-text">Children In Program</h2>
             <table className="table">
             <thead>
                 <tr>
-                <th scope="col">Child Name</th>
-                <th scope="col">Child Age</th>
-                <th scope="col">Hobbies?</th>
+                <th scope="col">Child's Name</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Child's Age</th>
                 <th scope="col">Intake Date</th>
                 <th scope="col">Room Number</th>
                 <th scope="col">Actions Available</th>
@@ -59,11 +59,11 @@ const DisplayAll = () => {
                     </td>
 
                     <td>
-                        {children.age}
+                        {children.birthdate}
                     </td>
-                    
+
                     <td>
-                        {children.hobbies}
+                        {children.age}
                     </td>
 
                     <td>

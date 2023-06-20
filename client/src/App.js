@@ -7,10 +7,11 @@ import ChildrenForm from "./components/ChildrenForm";
 import EditChildren from "./components/EditChildren";
 
 
+
 function App() {
   return (
     <div className="App">
-      <h1>Children in Program</h1>
+      <h1>LTFC Academy</h1> <br /> <br /> <br />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DisplayAll/>} />

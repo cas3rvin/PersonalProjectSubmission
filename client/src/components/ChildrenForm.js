@@ -5,10 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 const ChildrenForm = () => {
     // const { id } = useParams();
     const [name, setChildrenName] = useState("");
+    const [birthdate, setChildrenBirthdate] = useState("");
     const [age, setChildrenAge] = useState(""); 
-    const [hobbies, setChildrenHobbies] = useState(""); 
     const [date, setChildrenDate] = useState("");
     const [room, setChildrenRoom] = useState("");
+    const [country, setChildrenCountry] = useState("");
+    const [hobbies, setChildrenHobbies] = useState(""); 
+    const [music, setChildrenMusic] = useState("");
+    const [sport, setChildrenSport] = useState("");
+    const [food, setChildrenFood] = useState(""); 
+    const [tv, setChildrenTv] = useState("");
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     const handleSubmit = (e) => {
@@ -16,10 +22,16 @@ const ChildrenForm = () => {
         axios
         .post("http://localhost:8000/api/children", { 
             name,
+            birthdate,
             age, 
-            hobbies,
             date,
             room,
+            country,
+            hobbies,
+            music,
+            sport,
+            food,
+            tv,
         })
         .then((response) => {
             console.log(response);
@@ -38,9 +50,9 @@ const ChildrenForm = () => {
             
             <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <p className="purple-text">Add a new child!</p>
+                <h2 className="purple-text">Add a new child</h2>
 
-                <label htmlFor="name">Child's Name</label>
+                <label htmlFor="name">Child's Full Name</label>
                 <input
                 type="text"
                 className="form-control"
@@ -51,6 +63,23 @@ const ChildrenForm = () => {
             </div>
             </form>
             
+
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+
+                <label htmlFor="birthdate">Date of Birth</label>
+                <input
+                type="date"
+                id="birthdate"
+                value={birthdate}
+                onChange={(e) => setChildrenBirthdate(e.target.value)}   
+                />
+                {errors.birthdate ? <p>{errors.birthdate.message}</p> : null}
+            </div>
+            </form>
+
+
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                 <p className="purple-text"></p>
@@ -66,20 +95,6 @@ const ChildrenForm = () => {
             </div>
             </form>
 
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                <p className="purple-text"></p>
-
-                <label htmlFor="hobbies">Hobbies?</label>
-                <input
-                type="text"
-                id="hobbies"
-                value={hobbies}
-                onChange={(e) => setChildrenHobbies(e.target.value)}   
-                />
-                {errors.hobbies ? <p>{errors.hobbies.message}</p> : null}
-            </div>
-            </form>
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -109,9 +124,103 @@ const ChildrenForm = () => {
                 onChange={(e) => setChildrenRoom(e.target.value)}   
                 />
                 {errors.room ? <p>{errors.room.message}</p> : null}
-            
-            
-            
+            </div>
+            </form>
+
+
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+
+                <label htmlFor="country">Country of Origin</label>
+                <input
+                type="country"
+                id="country"
+                value={country}
+                onChange={(e) => setChildrenCountry(e.target.value)}   
+                />
+                {errors.country ? <p>{errors.country.message}</p> : null}
+
+            </div>
+            </form>
+
+
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+
+                <label htmlFor="hobbies">Hobbies?</label>
+                <input
+                type="hobbies"
+                id="hobbies"
+                value={hobbies}
+                onChange={(e) => setChildrenHobbies(e.target.value)}   
+                />
+                {errors.hobbies ? <p>{errors.hobbies.message}</p> : null}
+            </div>
+            </form>
+
+                <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+                
+                <label htmlFor="music">Favorite Music Genre/Artist</label>
+                <input
+                type="music"
+                id="music"
+                value={music}
+                onChange={(e) => setChildrenMusic(e.target.value)}   
+                />
+                {errors.music ? <p>{errors.music.message}</p> : null}
+
+            </div>
+            </form>
+
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+
+                <label htmlFor="sport">Favorite Sport Activity</label>
+                <input
+                type="sport"
+                id="sport"
+                value={sport}
+                onChange={(e) => setChildrenSport(e.target.value)}   
+                />
+                {errors.sport ? <p>{errors.sport.message}</p> : null}
+
+            </div>
+            </form>
+
+
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+
+                <label htmlFor="food">Favorite Food</label>
+                <input
+                type="food"
+                id="food"
+                value={food}
+                onChange={(e) => setChildrenFood(e.target.value)}   
+                />
+                {errors.food ? <p>{errors.food.message}</p> : null}
+            </div>
+            </form>
+
+                <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                <p className="purple-text"></p>
+                
+                <label htmlFor="tv">Favorite Movies/TV Shows</label>
+                <input
+                type="tv"
+                id="tv"
+                value={tv}
+                onChange={(e) => setChildrenTv(e.target.value)}   
+                />
+                {errors.tv ? <p>{errors.tv.message}</p> : null}
+
             </div>
 
             <br />

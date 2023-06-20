@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate, Link, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 
 
@@ -8,7 +8,7 @@ import axios from "axios";
 const Children = (_props)=>{
 
     const {id} = useParams();
-    const navigate = useNavigate({});
+    // const navigate = useNavigate({});
     const [Children, setChildren] = useState({});
 
     useEffect(()=>{
@@ -22,89 +22,110 @@ const Children = (_props)=>{
             });
     },[id]);
 
-    const deleteHandler = () => {
-        axios.delete(`http://localhost:8000/api/children/${id}`)
-            .then((res) => {
+    // const deleteHandler = () => {
+    //     axios.delete(`http://localhost:8000/api/children/${id}`)
+    //         .then((res) => {
 
-                console.log(res);
-                console.log(res.data);
+    //             console.log(res);
+    //             console.log(res.data);
 
-                navigate("/");
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
+    //             navigate("/");
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // };
 
 
     return( 
         <div className="Children-component">
-            <Link to="/">Go Back Home</Link>
-            <h2>Child Name: {Children.name}</h2>
-            <h2>Child's Age: {Children.age}</h2> 
-            <h2>Hobbies: {Children.hobbies}</h2> 
+            <Link to="/">Go Back Home</Link> <br /> <br /> <br />
+            
+            <h2>Name: {Children.name}</h2>
+            <h2>Date of Birth: {Children.birthdate}</h2>
+            <h2>Age: {Children.age}</h2> 
+            {/* <h2>Hobbies: {Children.hobbies}</h2>  */}
             <h2>Intake Date: {Children.date}</h2>
             <h2>Room Number: {Children.room}</h2>
-            <button onClick={deleteHandler}>Delete</button>
+            <br /> 
+            {/* <button onClick={deleteHandler}>Delete</button> */}
             <Link to={`/edit/${Children._id}`}>
             <button className="btn btn-primary">Edit</button>
             </Link> <br /> <br /> <br />
 
             
 
-            <h1>Activity Log</h1>
+            <h1>Profile</h1>
 
-
+            {/* <Link to="/addActivity">Add an activity?</Link> <br /> <br /> */}
 
             
             <div className="container">
         <div className="row">
             <div className="col-8">
-            <p className="purple-text">Children Activity Log</p>
+            <p className="purple-text"></p>
             <table className="table">
             <thead>
                 <tr>
-                <th scope="col">Child Name</th>
-                <th scope="col">Child Age</th>
-                <th scope="col">Hobbies?</th>
-                <th scope="col">Intake Date</th>
-                <th scope="col">Room Number</th>
-                <th scope="col">Actions Available</th>
+                <th scope="col">Country of Birth</th>
+
+                <th scope="col">Favorite Music Genre/Artist</th>
+
+                <th scope="col">Hobbies</th>
+
+                <th scope="col">Favorite Sport Activity</th>
+
+                <th scope="col">Favorite Foods</th>
+
+                <th scope="col">Favorite Movies/TvShows</th>
+
                 </tr>
+                
             </thead>
 
-            </table>
-            <Link to="/add">Add a child?</Link>
+
+
+
+            {/* </table>
+            // <Link to="/addActivity">Add an activity?</Link>
             </div>
         </div>
-    </div>
-            {/* <tbody>
-                {allChildren.map((children, _index) => {
-                return (
+    </div> */}
+
+            <tbody>
+                {/* {allChildren.map((children, _index) => {
+                return ( */}
                     <tr key={Children._id}>
-                    <td>
+                    {/* <td>
                         <Link to={`/children/${children._id}`}>
                         {children.name}
                         </Link>
-                    </td>
+                    </td> */}
 
                     <td>
-                        {Children.age}
+                        {Children.country}
                     </td>
                     
+                    <td>
+                        {Children.music}
+                    </td>
+
                     <td>
                         {Children.hobbies}
                     </td>
 
                     <td>
-                        {Children.date}
+                        {Children.sport}
                     </td>
 
                     <td>
-                        {Children.room}
+                        {Children.food}
+                    </td>
+                    <td>
+                        {Children.tv}
                     </td>
 
-                    <td>
+                    {/* <td>
                         <Link to={`/edit/${children._id}`}>
                         <button className="btn btn-primary">Edit</button>
                         </Link>
@@ -115,18 +136,20 @@ const Children = (_props)=>{
                         >
                         Delete
                         </button>
-                    </td>
+                    </td> */}
                     
                     </tr>
-                );
-                })}
+                
+                
             </tbody>
             </table>
-            <Link to="/add">Add a child?</Link>
+            {/* <Link to="/add">Add a child?</Link> */}
             </div>
         </div>
     </div>
-    ); */}
+    
+
+
 
 
         </div>
